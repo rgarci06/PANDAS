@@ -15,16 +15,11 @@ def obrir_fitxer(nom_carpeta:str, fitxer:str):
     """
     DIRECTORI=os.path.dirname(__file__)
 
-    
-    if not nom_carpeta:
-        FITXER=os.path.join(DIRECTORI, fitxer)
-    else:
-        FITXER=os.path.join(DIRECTORI, nom_carpeta, fitxer)
-    if not os.path.isfile(FITXER):
-        raise FileNotFoundError("Error en el fitxer")
-    dataframe=pd.read_csv(FITXER, encoding="utf-8")
-    # amb empty validem si té fila true si està buit
-    if dataframe.empty:
-        return None
-    return dataframe
+    RUTA=os.path.join(DIRECTORI, nom_carpeta, fitxer)
+    try:
+        df=pd.read_csv(RUTA)
+        return df
+    except FileNotFoundError:
+        print("Error: Fitxer no trobat")
+        return 0
 
