@@ -2,7 +2,7 @@
 
 from funcions import obrir_fitxer
 
-jocs=obrir_fitxer("../data", "vgsales.csv")
+jocs=obrir_fitxer("../data/", "vgsales.csv")
 
 # ? Canvia el nom de la columna Global_Sales a Total_Sales i mostra les primeres 5 files.
 
