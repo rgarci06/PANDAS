@@ -22,4 +22,3 @@ def obrir_fitxer(nom_carpeta:str, fitxer:str):
     except FileNotFoundError:
         print("Error: Fitxer no trobat")
         return 0
-
