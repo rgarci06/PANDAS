@@ -41,7 +41,10 @@ print(suma_vendes_regions)
 # Aqui el que he fet a sigut seleccionar les columnes NA_Sales, EU_Sales, JP_Sales i Other_Sales i despres he utilitzat el sum() per sumar les dades i aixi tindre la suma de vendes.
 # ? Quin editor ha publicat més jocs i el nombre?
 print("\n--- Editor que ha publicat més jocs i el nombre ---")
-editor_jocs = jocs['Name'].value_counts('Publisher').sum
+editor_mes_jocs = jocs['Publisher'].value_counts().idxmax()
+nombre_jocs_editor = jocs['Publisher'].value_counts().max()
+print(f"Editor: {editor_mes_jocs}, Nombre de jocs: {nombre_jocs_editor}")
+# 
 # ? Filtra els jocs del gènere 'Action' i mostra el joc que ha venut més en l'àmbit global.
 
 # ? La mitjana de vendes globals en valor absolut
