@@ -40,7 +40,18 @@ suma_vendes_regions = jocs[['NA_Sales', 'EU_Sales', 'JP_Sales', 'Other_Sales']].
 print(suma_vendes_regions)
 # Aqui el que he fet a sigut seleccionar les columnes NA_Sales, EU_Sales, JP_Sales i Other_Sales i despres he utilitzat el sum() per sumar les dades i aixi tindre la suma de vendes.
 # ? Quin editor ha publicat més jocs i el nombre?
-
+print("\n--- Editor que ha publicat més jocs i el nombre ---")
+nom_editor = jocs['Publisher'].value_counts().idxmax()
+nombre_jocs = jocs['Publisher'].value_counts().max()
+print(f"{nom_editor} amb {nombre_jocs} jocs\n")
+# Aqui he fet la variable nom_editor on he utilitzat el value_counts() per comptar els valors de la columna Publisher i despres he utilitzat l'idxmax() per mostrar l'editor que ha publicat més jocs. Despres he fet la variable nombre_jocs on he utilitzat el value_counts() per comptar els valors de la columna Publisher i per últim he utilitzat el max() per mostrar el nombre de jocs que ha publicat l'editor que ha publicat més jocs.
 # ? Filtra els jocs del gènere 'Action' i mostra el joc que ha venut més en l'àmbit global.
-
+print("\n--- Joc d'Acció més venut globalment ---")
+joc_accio_mes_vendes = jocs[jocs['Genre'] == 'Action'].sort_values('Global_Sales', ascending=False).head(1)
+print(joc_accio_mes_vendes)
+# Aqui he fet la variable joc_accio_mes_vendes on he filtrat els jocs del gènere Action utilitzant jocs[jocs['Genre'] == 'Action'] i despres he utilitzat el sort_values() per ordenar els jocs per la columna Global_Sales de major a menor amb el ascending=False. Finalment he utilitzat el head(1) per mostrar el joc d'acció més venut globalment.
 # ? La mitjana de vendes globals en valor absolut
+print("\n--- Mitjana de vendes globals en valor absolut ---")
+mitjana_vendes_globals = jocs['Global_Sales'].mean()
+print(abs(mitjana_vendes_globals))
+# Aqui he fet la variable mitjana_vendes_globals on he utilitzat el mean() per calcular la mitjana de les vendes globals de la columna Global_Sales i despres he utilitzat la funcio abs() per mostrar el valor absolut de la mitjana.
