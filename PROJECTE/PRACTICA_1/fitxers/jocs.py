@@ -62,7 +62,7 @@ print(joc_accio_mes_vendes)
 # ? La mitjana de vendes globals en valor absolut
 print("\n--- Mitjana de vendes globals en valor absolut ---")
 mitjana_vendes_globals = jocs['Total_Sales'].mean()
-print(abs(mitjana_vendes_globals))
+print(abs(mitjana_vendes_globals * 10000000))
 # Aqui he fet la variable mitjana_vendes_globals on he utilitzat el mean() per calcular la mitjana de les vendes globals de la columna Total_Sales i despres he utilitzat la funcio abs() per mostrar el valor absolut de la mitjana.
 
 resultat = f"""
@@ -85,7 +85,7 @@ resultat = f"""
 \n 9. Joc d'Acció més venut globalment:
 {joc_accio_mes_vendes.to_string(index=False)}
 \n 10. Mitjana de vendes globals en valor absolut:
-{abs(mitjana_vendes_globals)}
+{abs(mitjana_vendes_globals * 10000000)}
 """
 with open("resultats_jocs.txt", "w", encoding="utf-8") as arxiu:
     arxiu.write(resultat)
