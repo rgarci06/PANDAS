@@ -4,11 +4,11 @@ from funcions import obrir_fitxer
 
 jocs=obrir_fitxer("../data", "vgsales.csv")
 
-# ? Canvia el nom de la columna Global_Sales a Total_Sales i mostra les primeres 5 files.
+# ? Canvia el nom de la columna Total_Sales a Total_Sales i mostra les primeres 5 files.
 print("\n--- Canvi nom columna Global_Sales a Total_Sales ---")
-canvi_nom = jocs.rename(columns={"Global_Sales": "Total_Sales"})
-print(canvi_nom.head(5))
-# Aqui el que he fet ha sigut crear una variable per canviar el nom, he utilitzat el reaname per canviar el nom de la columna i per canviar el nom he agut de seleccionar-la amb {(aquest es el parametre que vull canviar) -> "Global_Sales": "Total_Sales" <- (aquest es el nom al que vull canviar)} i  al print he utilitzat el head(5) per mostrar les 5 primeres files.
+canvi_nom = jocs.rename(columns={"Global_Sales": "Total_Sales"}, inplace=True)
+print(jocs.head(5))
+# Aqui he utilitzat el metode rename() per canviar el nom de la columna Global_Sales a Total_Sales i he posat inplace=True per fer el canvi directament al DataFrame jocs. Despres he utilitzat el metode head(5) per mostrar les primeres 5 files del DataFrame.
 
 # ? Compta quants jocs hi ha per cada plataforma.
 print("\n--- Comptar jocs per plataforma ---")
@@ -36,9 +36,9 @@ print(jocs_usa)
 
 # ? Quina plataforma ha venut més en total?
 print("\n--- Plataforma que ha venut més en total ---")
-plataforma_mes_vendes = jocs.groupby('Platform')['Global_Sales'].sum().idxmax()
+plataforma_mes_vendes = jocs.groupby('Platform')['Total_Sales'].sum().idxmax()
 print(plataforma_mes_vendes)
-# Aqui el que he fet ha sigut crear la variable plataforma_mes_vendes on he utilitzat el groupby per agrupar els jocs per plataforma i despres he seleccionat la columna Global_Sales per sumar les vendes totals per cada plataforma amb el sum(). Finalment he utilitzat l'idxmax() per mostrar la plataforma amb més vendes totals.
+# Aqui el que he fet ha sigut crear la variable plataforma_mes_vendes on he utilitzat el groupby per agrupar els jocs per plataforma i despres he seleccionat la columna Total_Sales per sumar les vendes totals per cada plataforma amb el sum(). Finalment he utilitzat l'idxmax() per mostrar la plataforma amb més vendes totals.
 
 # ? Calcula la suma de vendes per cada regió (NA_Sales, EU_Sales, JP_Sales, Other_Sales).
 print("\n--- Suma de vendes per cada regió ---")
@@ -55,12 +55,12 @@ print(f"{nom_editor} amb {nombre_jocs} jocs\n")
 
 # ? Filtra els jocs del gènere 'Action' i mostra el joc que ha venut més en l'àmbit global.
 print("\n--- Joc d'Acció més venut globalment ---")
-joc_accio_mes_vendes = jocs[jocs['Genre'] == 'Action'].sort_values('Global_Sales', ascending=False).head(1)
+joc_accio_mes_vendes = jocs[jocs['Genre'] == 'Action'].sort_values('Total_Sales', ascending=False).head(1)
 print(joc_accio_mes_vendes)
-# Aqui he fet la variable joc_accio_mes_vendes on he filtrat els jocs del gènere Action utilitzant jocs[jocs['Genre'] == 'Action'] i despres he utilitzat el sort_values() per ordenar els jocs per la columna Global_Sales de major a menor amb el ascending=False. Finalment he utilitzat el head(1) per mostrar el joc d'acció més venut globalment.
+# Aqui he fet la variable joc_accio_mes_vendes on he filtrat els jocs del gènere Action utilitzant jocs[jocs['Genre'] == 'Action'] i despres he utilitzat el sort_values() per ordenar els jocs per la columna Total_Sales de major a menor amb el ascending=False. Finalment he utilitzat el head(1) per mostrar el joc d'acció més venut globalment.
 
 # ? La mitjana de vendes globals en valor absolut
 print("\n--- Mitjana de vendes globals en valor absolut ---")
-mitjana_vendes_globals = jocs['Global_Sales'].mean()
+mitjana_vendes_globals = jocs['Total_Sales'].mean()
 print(abs(mitjana_vendes_globals))
-# Aqui he fet la variable mitjana_vendes_globals on he utilitzat el mean() per calcular la mitjana de les vendes globals de la columna Global_Sales i despres he utilitzat la funcio abs() per mostrar el valor absolut de la mitjana.
+# Aqui he fet la variable mitjana_vendes_globals on he utilitzat el mean() per calcular la mitjana de les vendes globals de la columna Total_Sales i despres he utilitzat la funcio abs() per mostrar el valor absolut de la mitjana.
