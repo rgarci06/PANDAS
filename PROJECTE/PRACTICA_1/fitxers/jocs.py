@@ -64,3 +64,28 @@ print("\n--- Mitjana de vendes globals en valor absolut ---")
 mitjana_vendes_globals = jocs['Total_Sales'].mean()
 print(abs(mitjana_vendes_globals))
 # Aqui he fet la variable mitjana_vendes_globals on he utilitzat el mean() per calcular la mitjana de les vendes globals de la columna Total_Sales i despres he utilitzat la funcio abs() per mostrar el valor absolut de la mitjana.
+
+resultat = f"""
+   1. Canvi nom columna Global_Sales a Total_Sales:
+{jocs.head().to_string(index=False)}
+\n 2. Comptar jocs per plataforma:
+{jocs_plataforma.to_string()}
+\n 3. Comptar jocs per gènere ordenats de menor a major:
+{jocs_genere.to_string()}
+\n 4. Comptar jocs per any:
+{jocs_any.to_string()}
+\n 5. 5 jocs més venuts a USA:
+{jocs_usa.to_string(index=False)}
+\n 6. Plataforma que ha venut més en total:
+{plataforma_mes_vendes}
+\n 7. Suma de vendes per cada regió:
+{suma_vendes_regions.to_string()}
+\n 8. Editor que ha publicat més jocs i el nombre:
+{nom_editor} amb {nombre_jocs} jocs
+\n 9. Joc d'Acció més venut globalment:
+{joc_accio_mes_vendes.to_string(index=False)}
+\n 10. Mitjana de vendes globals en valor absolut:
+{abs(mitjana_vendes_globals)}
+"""
+with open("resultats_jocs.txt", "w", encoding="utf-8") as arxiu:
+    arxiu.write(resultat)
