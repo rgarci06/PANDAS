@@ -6,9 +6,9 @@ jocs=obrir_fitxer("../data", "vgsales.csv")
 
 # ? Canvia el nom de la columna Total_Sales a Total_Sales i mostra les primeres 5 files.
 print("\n--- Canvi nom columna Global_Sales a Total_Sales ---")
-canvi_nom = jocs.rename(columns={"Global_Sales": "Total_Sales"}, inplace=True)
+canvi_nom = jocs.rename(columns={"Global_Sales": "Total_Sales"}, inplace = True)
 print(jocs.head(5))
-# Aqui he utilitzat el metode rename() per canviar el nom de la columna Global_Sales a Total_Sales i he posat inplace=True per fer el canvi directament al DataFrame jocs. Despres he utilitzat el metode head(5) per mostrar les primeres 5 files del DataFrame.
+# Aqui he utilitzat el metode rename() per canviar el nom de la columna Global_Sales a Total_Sales i aixi es canvia per a totes les consultes següents. Despres he utilitzat el metode head(5) per mostrar les primeres 5 files del DataFrame.
 
 # ? Compta quants jocs hi ha per cada plataforma.
 print("\n--- Comptar jocs per plataforma ---")
